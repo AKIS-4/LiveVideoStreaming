@@ -27,7 +27,7 @@ function App() {
               <Routes>
                 <Route path="/profile" element={<Profile user={user} />} />
                 <Route path="/sign-in" element={<SignIn />} />
-                <Route path="/live-stream" element={<LiveStream streamUrl={streamUrl} />} />
+                <Route path="/live-stream" element={<LiveStream />} />
                 {/* Add other routes here */}
               </Routes>
             </div>
