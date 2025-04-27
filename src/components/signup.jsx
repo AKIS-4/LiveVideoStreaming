@@ -8,7 +8,7 @@ const SignIn = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const response = await fetch(`http://localhost:3000/api/auth/login`, {
+        const response = await fetch(`http://localhost:3000/api/auth/createuser`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -16,7 +16,6 @@ const SignIn = () => {
             body: JSON.stringify({ name: username, password })
         });
         const json = await response.json()
-        console.log(json)
         if (json.success) {
             // Save the auth token and redirect
             localStorage.setItem('token', json.authtoken)
@@ -32,7 +31,7 @@ const SignIn = () => {
     return (
         <div className="flex justify-center items-center h-screen bg-gray-100">
             <div className="w-full max-w-md p-8 bg-white rounded-lg shadow-md">
-                <h2 className="text-2xl font-bold mb-6 text-center">Sign In</h2>
+                <h2 className="text-2xl font-bold mb-6 text-center">Sign Up</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="mb-4">
                         <label htmlFor="username" className="block text-sm font-medium text-gray-700">Username</label>
@@ -60,7 +59,7 @@ const SignIn = () => {
                         type="submit"
                         className="w-full py-2 px-4 bg-blue-600 text-white rounded-md hover:bg-blue-700"
                     >
-                        Sign In
+                        Sign Up
                     </button>
                 </form>
             </div>

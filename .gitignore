@@ -23,7 +23,9 @@ chrome-user-data
 .vscode
 *.swp
 *.swo
-
+package-lock.json
+Database/node_modules
+Database/package-lock.json
 packages/react-devtools-core/dist
 packages/react-devtools-extensions/chrome/build
 packages/react-devtools-extensions/chrome/*.crx

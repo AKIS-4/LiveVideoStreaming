@@ -4,6 +4,7 @@ import Sidebar from './components/Sidebar';
 import Footer from './components/Footer';
 import Profile from './components/Profile';
 import SignIn from './components/SignIn';
+import SignUp from './components/signup';
 import LiveStream from './components/LiveStream';
 
 // Example user data
@@ -27,6 +28,7 @@ function App() {
               <Routes>
                 <Route path="/profile" element={<Profile user={user} />} />
                 <Route path="/sign-in" element={<SignIn />} />
+                <Route path="/sign-up" element={<SignUp />} />
                 <Route path="/live-stream" element={<LiveStream />} />
                 {/* Add other routes here */}
               </Routes>

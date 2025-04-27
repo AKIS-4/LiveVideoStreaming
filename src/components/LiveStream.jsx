@@ -3,35 +3,21 @@ import Hls from "hls.js";
 
 
 const LiveStream = () => {
-  const videoRef = useRef(null);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    const hlsUrl = "http://13.233.100.5:8080/hls/test.m3u8"; // Replace with your actual HLS URL
-
-    if (Hls.isSupported()) {
-      const hls = new Hls();
-      hls.loadSource(hlsUrl);
-      hls.attachMedia(video);
-      hls.on(Hls.Events.MANIFEST_PARSED, () => {
-        video.play();
-      });
-
-      return () => {
-        hls.destroy();
-      };
-    } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
-      video.src = hlsUrl;
-      video.addEventListener("loadedmetadata", () => {
-        video.play();
-      });
-    }
-  }, []);
-
+  
   return (
     <div>
-      <h2>Live Stream</h2>
-      <video ref={videoRef} controls width="640" height="360" />
+      <ul role="list" class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <li class="col-span-1 divide-y divide-gray-200 rounded-lg bg-gray-300 shadow">
+          <div class="flex w-full items-center justify-between space-x-6 p-6">
+            <div class="flex-1 truncate">
+              <div class="flex items-center space-x-3">
+                <h3 class="truncate text-sm font-medium text-gray-900">Shehab Najib</h3>
+              </div>
+              <p class="mt-1 truncate text-sm text-gray-500">Acount owner</p>
+            </div>
+          </div>
+        </li>
+      </ul>
     </div>
   );
 };
