@@ -30,8 +30,7 @@ const SignIn = () => {
     };
 
     return (
-        <div className="flex justify-center items-center h-screen bg-gray-100">
-            <div className="w-full max-w-md p-8 bg-white rounded-lg shadow-md">
+        <div className="w-full max-w-3xl p-8 mx-auto rounded-lg shadow-2xl my-32">
                 <h2 className="text-2xl font-bold mb-6 text-center">Sign In</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="mb-4">
@@ -58,13 +57,12 @@ const SignIn = () => {
                     </div>
                     <button
                         type="submit"
-                        className="w-full py-2 px-4 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+                        className="w-full py-2 px-4 bg-pink-900 text-white rounded-md hover:bg-yellow-700"
                     >
                         Sign In
                     </button>
                 </form>
             </div>
-        </div>
     );
 };
 

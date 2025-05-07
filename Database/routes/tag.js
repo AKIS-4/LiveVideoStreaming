@@ -2,7 +2,7 @@ const express = require('express')
 const User = require('../models/tag')
 const router = express.Router()
 
-router.get('/addintag', async(req, res)=>{
+router.get('/addintag', async (req, res) => {
     try {
         await User.findOneAndUpdate(
             { tag: req.body.name },
@@ -21,11 +21,13 @@ router.post('/getvideo', async (req, res) => {
         let userId = req.body.name;
         const mySet = new Set();
         let user;
-        for(let i =0; i<userId.length; i++){
+        for (let i = 0; i < userId.length; i++) {
             user = await User.findOne({ tag: userId[i] })
-            user = user.name
-            for(let j =0; j<user.length; j++){
-                mySet.add(user[j])
+            if (user) {
+                user = user.name
+                for (let j = 0; j < user.length; j++) {
+                    mySet.add(user[j])
+                }
             }
         }
         res.json(Array.from(mySet))

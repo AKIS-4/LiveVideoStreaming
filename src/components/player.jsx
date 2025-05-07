@@ -1,13 +1,15 @@
 import React, { useEffect, useRef } from "react";
+import { useParams } from 'react-router-dom';
 import Hls from "hls.js";
 
 
 const LiveStream = () => {
   const videoRef = useRef(null);
+  const { id } = useParams();
 
   useEffect(() => {
     const video = videoRef.current;
-    const hlsUrl = "http://13.201.99.73:8080/hls/test.m3u8"; // Replace with your actual HLS URL
+    const hlsUrl = `http://13.201.99.73:8080/hls/${id}.m3u8`; 
 
     if (Hls.isSupported()) {
       const hls = new Hls();
@@ -29,9 +31,8 @@ const LiveStream = () => {
   }, []);
 
   return (
-    <div>
-      <h2>Live Stream</h2>
-      <video ref={videoRef} controls width="640" height="360" />
+    <div className="flex items-center justify-center">
+      <video className="rounded-3xl" ref={videoRef} controls width="1080" height="360" />
     </div>
   );
 };

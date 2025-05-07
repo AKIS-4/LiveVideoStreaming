@@ -69,14 +69,14 @@ router.post('/login',async (req, res) => {
     }
 })
 
-router.get('/gettag', async (req, res) => {
+router.post('/gettag', async (req, res) => {
     try {
-        let userId = req.user
-        const user = await User.findOne({ userId })
+        let userId = req.body.name
+        const user = await User.findOne({ name: userId })
         res.send(user.tag)
     } catch (error) {
         console.error(error.message, error)
-        res.status(500).send("Internal server error")
+        res.status(500).send("Internal server error") 
     }
 })
 
