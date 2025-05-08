@@ -23,6 +23,9 @@ rtmp {
         application ingest {
             live on;
             record off;
+		
+	    on_publish http://13.233.91.98:3000/api/video/stream-auth;
+            on_publish_done http://13.233.91.98:3000/api/video/deletevideo;
 
             # Forward stream to the transcoding server
             push rtmp://$TRANSCODING_SERVER_IP;
