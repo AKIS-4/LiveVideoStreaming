@@ -3,15 +3,15 @@ const User = require('../models/video')
 const Tag = require('../models/tag')
 const router = express.Router()
 
-router.get('/createvideo', async(req, res)=>{
+router.post('/createvideo', async(req, res)=>{
     try {
         let user = await User.findOne({ name: req.body.name })
         if (user) {
-            return res.status(400).json({ success, error: "Sorry a video name already exists" })
+            return res.status(400).json("no")
         }
 
         user = await User.create({
-            name: req.body.name, 
+            name: req.body.name
         })
 
         res.json("done")

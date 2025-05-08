@@ -8,7 +8,7 @@ const SignIn = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const response = await fetch(`http://localhost:3000/api/auth/login`, {
+        const response = await fetch(`http://${import.meta.env.VITE_name}:3000/api/auth/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -16,21 +16,19 @@ const SignIn = () => {
             body: JSON.stringify({ name: username, password })
         });
         const json = await response.json()
-        console.log(json)
         if (json.success) {
-            // Save the auth token and redirect
             localStorage.setItem('token', json.authtoken)
             localStorage.setItem('name', username)
-            // props.showAlert("Account created successfully", "success")
             navigate('/');
         } else {
-            props.showAlert("Invalid Credentials", "danger")
+            setUsername('')
+            setPassword('')
         }
 
     };
 
     return (
-        <div className="w-full max-w-3xl p-8 mx-auto rounded-lg shadow-2xl my-32">
+        <div className="w-full max-w-3xl p-28 mx-auto rounded-full shadow-2xl my-32">
                 <h2 className="text-2xl font-bold mb-6 text-center">Sign In</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="mb-4">
@@ -40,7 +38,7 @@ const SignIn = () => {
                             id="username"
                             value={username}
                             onChange={(e) => setUsername(e.target.value)}
-                            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-full shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                             required
                         />
                     </div>
@@ -51,13 +49,13 @@ const SignIn = () => {
                             id="password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
-                            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-full shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                             required
                         />
                     </div>
                     <button
                         type="submit"
-                        className="w-full py-2 px-4 bg-pink-900 text-white rounded-md hover:bg-yellow-700"
+                        className="w-full py-2 mt-2 px-4 bg-pink-900 text-white rounded-full hover:bg-yellow-700"
                     >
                         Sign In
                     </button>

@@ -27,7 +27,7 @@ router.post('/createuser', async(req, res)=>{
         })
 
         const data = {
-            user: {
+            user: { 
                 id: user.id
             }
         }
@@ -85,9 +85,9 @@ router.post('/addtag', async (req, res) => {
         await User.findOneAndUpdate(
             { name: req.body.name },
             { $push: { tag: req.body.tag } },
-            { upsert : true }
+            { new : true }
         );
-        res.send("done")
+        res.json("done")
     } catch (error) {
         console.error(error.message, error)
         res.status(500).send("Internal server error")

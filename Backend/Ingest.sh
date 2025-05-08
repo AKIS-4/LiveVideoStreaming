@@ -25,7 +25,7 @@ rtmp {
             record off;
 
             # Forward stream to the transcoding server
-            push rtmp://$TRANSCODING_SERVER_IP/live/\$name;
+            push rtmp://$TRANSCODING_SERVER_IP;
             
             allow publish all;
             allow play all;

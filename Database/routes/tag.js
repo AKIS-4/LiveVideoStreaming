@@ -2,7 +2,7 @@ const express = require('express')
 const User = require('../models/tag')
 const router = express.Router()
 
-router.get('/addintag', async (req, res) => {
+router.post('/addintag', async (req, res) => {
     try {
         await User.findOneAndUpdate(
             { tag: req.body.name },
@@ -37,4 +37,14 @@ router.post('/getvideo', async (req, res) => {
     }
 })
 
+router.post('/rmtag', async (req, res) => {
+    try {
+        let userId = req.body.name;
+        
+        res.json("done")
+    } catch (error) {
+        console.error(error.message, error)
+        res.status(500).send("Internal server error")
+    }
+})
 module.exports = router

@@ -21,7 +21,7 @@ function App() {
       <div className="flex flex-col h-screen">
         <div className="flex flex-1">
           <Sidebar />
-          <div className="flex-1 p-4 bg-purple-400">
+          <div className="flex-1 p-4 bg-slate-300">
             <div className="mt-4">
               <Routes>
                 <Route path="/profile" element={<Profile user={user} />} />
