@@ -6,6 +6,7 @@ const LiveStream = () => {
   const navigate = useNavigate()
   const [username, setUsername] = useState('');
   const [video, setVideo] = useState([]);
+  
   useEffect(() => {
     if (localStorage.getItem('token')) {
       setUsername(localStorage.getItem('name'))

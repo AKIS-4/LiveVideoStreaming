@@ -84,7 +84,7 @@ router.post('/addtag', async (req, res) => {
     try {
         await User.findOneAndUpdate(
             { name: req.body.name },
-            { $push: { tag: req.body.tag } },
+            { $addToSet: { tag: req.body.tag } },
             { new : true }
         );
         res.json("done")

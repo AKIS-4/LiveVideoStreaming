@@ -1,12 +1,13 @@
 const express = require('express')
 const User = require('../models/tag')
+const Tag = require('../models/user')
 const router = express.Router()
 
 router.post('/addintag', async (req, res) => {
     try {
         await User.findOneAndUpdate(
             { tag: req.body.name },
-            { $push: { name: req.body.tag } },
+            { $addToSet: { name: req.body.tag } },
             { upsert: true }
         );
         return res.json("done");
@@ -39,8 +40,10 @@ router.post('/getvideo', async (req, res) => {
 
 router.post('/rmtag', async (req, res) => {
     try {
-        let userId = req.body.name;
-        
+        await Tag.findOneAndUpdate(
+            { name: req.body.name },
+            { $pull: { tag: req.body.tag } }
+        );
         res.json("done")
     } catch (error) {
         console.error(error.message, error)
