@@ -32,17 +32,17 @@ ServerScripts folder contains all four server's bash script files to setup up al
 
 ### Multiple Video stream 
 #### Frontend
-![App Screenshot](public/multiple-4.png)
+![App Screenshot](public/multiple-4.jpeg)
 #### First Stream 
-![App Screenshot](public/multiple-3.png)
+![App Screenshot](public/multiple-3.jpeg)
 #### Second Stream
-![App Screenshot](public/multiple-2.png)
+![App Screenshot](public/multiple-2.jpeg)
 
 ### Video streams coming from Transcoding Server
-![App Screenshot](public/multiple-5.png)
+![App Screenshot](public/multiple-5.jpeg)
 
 ### Logs of Segmentation Server sending video(.ts) files to S3 storage.
-![App Screenshot](public/multiple-6.png)
+![App Screenshot](public/multiple-6.jpeg)
 
 ### Video stored in S3 bucket came from Segmentation Server.
 ![App Screenshot](public/multiple-1.png)
