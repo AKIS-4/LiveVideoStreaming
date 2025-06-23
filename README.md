@@ -19,13 +19,13 @@ ServerScripts folder contains all four server's bash script files to setup up al
 ![App Screenshot](public/single-1.png)
 
 ### Video streams coming from Transcoding Server
-![App Screenshot](public/single-4.png)
+![App Screenshot](public/single.jpeg)
 
 ### Logs of Segmentation Server sending video(.ts) files to S3 storage.
-![App Screenshot](public/single-3.png)
+![App Screenshot](public/single-3.jpeg)
 
 ### Video stored in S3 bucket came from Segmentation Server.
-![App Screenshot](public/single-2.png)
+![App Screenshot](public/single4.jpeg)
 
 
 ## Multiple Stream
