@@ -9,7 +9,7 @@ const LiveStream = () => {
 
   useEffect(() => {
     const video = videoRef.current;
-    const hlsUrl = `http://${import.meta.env.VITE_segment}:8080/hls/${id}.m3u8`; 
+    const hlsUrl = `http://${import.meta.env.VITE_segment}:8080/hls/${user+'_'+id}.m3u8`; 
 
     if (Hls.isSupported()) {
       const hls = new Hls();
